@@ -14,6 +14,11 @@ ignore_fields = (
     'ACTION_CD'
 )
 
+exp_fields = (
+    'EXP_FIRST',
+    'EXP_LAST'
+)
+
 
 class Connection:
     def __init__(self, name: str, to: str, soup: bs):
@@ -21,10 +26,13 @@ class Connection:
         self.name_to = name
         self.soup = soup
         parser = self.soup.find('CONNECTOR', TOINSTANCE=to, TOFIELD=name)
-        try:
-            self.name_from = parser.get('FROMFIELD')
-        except AttributeError:
-            self.name_from = None
+        if to in exp_fields:
+            self.name_from = soup.find('TRANSFORMATION', NAME=to).find('TRANSFORMFIELD', NAME=name).get('EXPRESSION')
+        else:
+            try:
+                self.name_from = parser.get('FROMFIELD')
+            except AttributeError:
+                self.name_from = None
         try:
             self.frm = parser.get('FROMINSTANCE')
         except AttributeError:
