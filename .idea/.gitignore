@@ -1,0 +1,7 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Ignore files
+/datatest/main.py
+/datatest/n_views.csv
+/datatest/search_filtered_b_views.py
