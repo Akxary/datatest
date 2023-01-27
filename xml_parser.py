@@ -1,12 +1,9 @@
 import csv
-import io
 import os
-import aiofiles
-import sqlparse as sp
-import multiprocessing
 from bs4 import BeautifulSoup as bs
+import config
 
-path_main = 'C:\\Users\\pavel.grishaev\\Documents\\01.23\\10-31\\way4\\way4\\DWH\\ipc\\prj_iedw_016\\mapping'
+path_main = config.mapping_path
 files = os.listdir(path_main)
 
 ignore_fields = (

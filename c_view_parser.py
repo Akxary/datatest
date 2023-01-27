@@ -4,9 +4,9 @@ import sqlparse as sp
 import re
 import os
 import asyncio
+import config
 
-path_main = 'C:\\Users\\pavel.grishaev\\Documents\\01.23\\10-31\\way4\\' \
-            'way4\\DWH\\greenplum\\s_grnplm_as_t_didsd_016_db_stg\\view'
+path_main = config.view_path
 prefix = 'v.s_grnplm_as_t_didsd_016_db_stg.c'
 file_name = 'out_c&n_views'
 
